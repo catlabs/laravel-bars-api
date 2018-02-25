@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bar extends Model
+class Brewery extends Model
 {
     public function beers()
     {
-        return $this->belongsToMany('App\Beer');
+        return $this->hasMany('App\Beer');
     }
 }

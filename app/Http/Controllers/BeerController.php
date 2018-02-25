@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Bar;
+use App\Beer;
 use Illuminate\Http\Request;
 
-class BarController extends Controller
+class BeerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class BarController extends Controller
      */
     public function index()
     {
-        return Bar::all();
+        return Beer::all();
     }
 
     /**
@@ -36,7 +36,7 @@ class BarController extends Controller
      */
     public function show($id)
     {
-        return Bar::with('beers')->find($id);
+        return Beer::with('brewery')->find($id);
     }
 
     /**

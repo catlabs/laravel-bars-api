@@ -13,6 +13,10 @@ class BarsSeeder extends Seeder
      */
     public function run()
     {
+
+
+        
+
         $faker = Faker::create('fr_FR');
         for ($i=0; $i < 100; $i++) { 
         	$bar = Bar::create([
