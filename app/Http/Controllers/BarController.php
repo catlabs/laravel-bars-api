@@ -12,9 +12,13 @@ class BarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Bar::all();
+        if(isset($request->sort)){
+            return Bar::orderBy(explode(':', $request->sort)[0], explode(':', $request->sort)[1])->paginate($request->itemsByPage);
+        }else{
+            return Bar::paginate($request->itemsByPage);
+        }
     }
 
     /**
@@ -48,7 +52,12 @@ class BarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //print_r($request->all());
+        Bar::find($id)->update(
+            ['name' => $request->name]
+        );
+
+        return ['status' => 'OK'];
     }
 
     /**
