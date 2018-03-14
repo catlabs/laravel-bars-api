@@ -5,20 +5,10 @@ namespace App\Http\Controllers;
 use App\Bar;
 use Illuminate\Http\Request;
 
-class BarController extends Controller
+class BarController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        if(isset($request->sort)){
-            return Bar::orderBy(explode(':', $request->sort)[0], explode(':', $request->sort)[1])->paginate($request->itemsByPage);
-        }else{
-            return Bar::paginate($request->itemsByPage);
-        }
+    function __construct() {
+        parent::__construct('App\Bar');
     }
 
     /**

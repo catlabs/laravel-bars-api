@@ -5,16 +5,10 @@ namespace App\Http\Controllers;
 use App\Brewery;
 use Illuminate\Http\Request;
 
-class BreweryController extends Controller
+class BreweryController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return Brewery::all();
+    function __construct() {
+        parent::__construct('App\Brewery');
     }
 
     /**
